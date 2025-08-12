@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Viability Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Startup Viability Predictor</h1>
+            <p>For Business Analysts</p>
+        </header>
+        
+        <main>
+            <section class="input-section">
+                <form id="viability-form">
+                    <div class="form-section">
+                        <h2>Financial Metrics</h2>
+                        <div class="form-group">
+                            <label for="revenue-projection">Revenue Projection (in $ thousands):</label>
+                            <input type="number" id="revenue-projection" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="funding-secured">Funding Secured (in $ thousands):</label>
+                            <input type="number" id="funding-secured" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-expenses">Monthly Expenses (in $ thousands):</label>
+                            <input type="number" id="monthly-expenses" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="break-even-months">Months to Break Even:</label>
+                            <input type="number" id="break-even-months" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Market Analysis</h2>
+                        <div class="form-group">
+                            <label for="market-size">Market Size (in $ billions):</label>
+                            <input type="number" id="market-size" min="0" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="market-growth">Market Growth Rate (%):</label>
+                            <input type="number" id="market-growth" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="competition-level">Competition Level (1-10):</label>
+                            <input type="range" id="competition-level" min="1" max="10" value="5">
+                            <span id="competition-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="market-entry-barriers">Market Entry Barriers (1-10):</label>
+                            <input type="range" id="market-entry-barriers" min="1" max="10" value="5">
+                            <span id="barriers-value">5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Team Evaluation</h2>
+                        <div class="form-group">
+                            <label for="team-experience">Team Experience (1-10):</label>
+                            <input type="range" id="team-experience" min="1" max="10" value="5">
+                            <span id="experience-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Team Size:</label>
+                            <input type="number" id="team-size" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="key-skills">Key Skills Coverage (1-10):</label>
+                            <input type="range" id="key-skills" min="1" max="10" value="5">
+                            <span id="skills-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="advisor-score">Advisory Board Quality (1-10):</label>
+                            <input type="range" id="advisor-score" min="1" max="10" value="5">
+                            <span id="advisor-value">5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Risk Factors</h2>
+                        <div class="form-group">
+                            <label for="market-risk">Market Risk (1-10):</label>
+                            <input type="range" id="market-risk" min="1" max="10" value="5">
+                            <span id="market-risk-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="technology-risk">Technology Risk (1-10):</label>
+                            <input type="range" id="technology-risk" min="1" max="10" value="5">
+                            <span id="tech-risk-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regulatory-risk">Regulatory Risk (1-10):</label>
+                            <input type="range" id="regulatory-risk" min="1" max="10" value="5">
+                            <span id="reg-risk-value">5</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="execution-risk">Execution Risk (1-10):</label>
+                            <input type="range" id="execution-risk" min="1" max="10" value="5">
+                            <span id="execution-risk-value">5</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Calculate Viability</button>
+                </form>
+            </section>
+            
+            <section class="results-section" id="results-section">
+                <h2>Viability Assessment</h2>
+                <div class="score-container">
+                    <div class="score-circle">
+                        <span id="viability-score">0</span>
+                        <span class="score-label">Viability Score</span>
+                    </div>
+                </div>
+                <div class="recommendation">
+                    <h3>Recommendation</h3>
+                    <p id="recommendation-text">Please fill out the form to get your viability assessment.</p>
+                </div>
+                <div class="detailed-results">
+                    <h3>Detailed Breakdown</h3>
+                    <div class="breakdown-item">
+                        <span>Financial Health:</span>
+                        <span id="financial-score">0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Market Potential:</span>
+                        <span id="market-score">0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Team Strength:</span>
+                        <span id="team-score">0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Risk Assessment:</span>
+                        <span id="risk-score">0</span>
+                    </div>
+                </div>
+                <!-- Loader -->
+
+
+<!-- Sparkle button -->
+<button class="sparkle">Check Score</button>
+
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
